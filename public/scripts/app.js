@@ -4,6 +4,17 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+$(document).ready(function() {
+renderTweets(data);
+$("#theForm").submit(function(event){
+    event.preventDefault();
+
+  });
+
+});
+
+
+
 // Fake data taken from tweets.json
 const data = [
   {
@@ -84,7 +95,3 @@ function createTweetElement(tweet) {
  console.log('tweet ==> ', $tweet)
  return $tweet;
 }
- $(document).ready(function() {
-renderTweets(data);
-
-});
