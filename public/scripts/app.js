@@ -4,10 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-
-
-
 // Fake data taken from tweets.json
 const data = [
   {
@@ -69,15 +65,15 @@ function renderTweets(tweets) {
 
 
 function createTweetElement(tweet) {
- let $tweet = $("<article></article>").addClass("tweet");
- let $header = $("<header></header>");
+ let $tweet = $("<article>").addClass("tweet");
+ let $header = $("<header>");
  let $img = $("<img>").attr("src", tweet.user.avatars.small);
- let $divAuthor = $("<div></div>").addClass("author").text(tweet.user.name);
- let $divHandle = $("<div></div>").addClass("handle").text(tweet.user.handle);
- let $divTweetBody = $("<div></div>").addClass("tweetBody");
+ let $divAuthor = $("<div>").addClass("author").text(tweet.user.name);
+ let $divHandle = $("<div>").addClass("handle").text(tweet.user.handle);
+ let $divTweetBody = $("<div>").addClass("tweetBody");
  console.log('$divTweetBody ==> ', $divTweetBody)
- let $theTweet = $("<p></p>").text(tweet.content.text);
- let $footer = $("<footer></footer>");
+ let $theTweet = $("<p>").text(tweet.content.text);
+ let $footer = $("<footer>");
  $tweet.append($header);
  $tweet.append($divTweetBody);
  $tweet.append($footer);
