@@ -3,25 +3,30 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
- function loadTweets() {
-   $.get("/tweets", function(data) {
+function loadTweets() {
+  $.get("/tweets", function(data) {
 
-     renderTweets(data);
-   });
- }
+    renderTweets(data);
+  });
+}
 
 $(document).ready(function() {
   $("#theForm").submit(function(event) {
     event.preventDefault();
-    let str = $("form").serialize();
-    console.log('str ==> ', str);
-    $.post("/tweets", str)
-
+    if ($(".tweetInput").val().trim() === "") {
+      alert("please put your tweet");
+    } else if (($(".tweetInput").val().length > 140)) {
+      alert("your tweet is too long");
+    } else {
+      let str = $("form").serialize();
+      console.log('str ==> ', str);
+      $.post("/tweets", str)
+    }
 
 
   });
 
-console.log('str ==> ');
+  console.log('str ==> ');
 
 
   loadTweets();
