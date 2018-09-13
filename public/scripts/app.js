@@ -19,11 +19,13 @@ $(document).ready(function() {
       alert("your tweet is too long");
     } else {
       let str = $("form").serialize();
-      console.log('str ==> ', str);
-      $.post("/tweets", str)
+      $("#tweets-container").empty();
+      $(".tweetInput").val("");
+      $(".counter").text("140");
+      $.post("/tweets", str, function () {
+        loadTweets();
+      });
     }
-
-
   });
 
   console.log('str ==> ');
