@@ -11,12 +11,18 @@ function loadTweets() {
 }
 
 $(document).ready(function() {
+  loadTweets();
+  $(".tweetInput").click(function() {
+    $("#error").slideUp();
+  });
+
   $("#theForm").submit(function(event) {
     event.preventDefault();
+
     if ($(".tweetInput").val().trim() === "") {
-      alert("please put your tweet");
+      $("#error").text("please put your tweet").slideDown();
     } else if (($(".tweetInput").val().length > 140)) {
-      alert("your tweet is too long");
+      $("#error").text("your tweet is too long").slideDown();
     } else {
       let str = $("form").serialize();
       $("#tweets-container").empty();
@@ -28,10 +34,10 @@ $(document).ready(function() {
     }
   });
 
-  console.log('str ==> ');
-
-
-  loadTweets();
+  $("#composeButton").click(function(event){
+    $(".new-tweet").slideToggle();
+    $(".tweetInput").focus();
+  })
 
 });
 

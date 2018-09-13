@@ -45,6 +45,12 @@ html {
   transition: 0.3s;
 }
 
+
+.tweet:hover {
+  opacity: 1;
+}
+
+
 .tweet header {
   background: #eee;
   padding:10px;
