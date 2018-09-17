@@ -81,6 +81,16 @@ html {
 .handle {
   float: right;
 }
+
+
+.icons {
+  float: right;
+  display: none;
+}
+
+.tweet:hover .icons {
+  display: block;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
